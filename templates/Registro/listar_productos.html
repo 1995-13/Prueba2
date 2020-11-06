@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <title>Listar productos</title>
+  </head>
+
+  <body>
+    <h2>Lista de productos</h2>
+
+    {% for p in productos %}
+        <div>
+            <p> codigo: {{ p.codigo }} </p>
+            <p> Nombre: {{ p.nombre }} </p>
+            <p>descripcion: {{ p.descripcion }} </p>
+            <img src="{% static p.imagen.url %}" />
+            <p> precio: ${{ p.precio }} </p>
+            <p> categoria: {{ p.categoria }} </p>
+        </div>
+        <br>
+    {% endfor %}
+
+  </body>
+</html>
