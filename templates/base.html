@@ -19,21 +19,21 @@
 
         <div id="nav">
             <ul>
-                {% comment %} <li class="nav-item"><a href="{% url 'home' %}">Home</a></li> {% endcomment %}
+                <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
                 <li class="nav-item"><a href="{% url 'list_productos' %}">Listar productos</a></li>
-                {% comment %} <li class="nav-item"><a href="{% url 'registrar' %}">Registrar usuario</a></li> {% endcomment %}
-                <li class="nav-item"><a href="#">Listar estudiantes</a></li>
+                <li class="nav-item"><a href="{% url 'registrar' %}">Registrar usuario</a></li>
+                <li class="nav-item"><a href="{% url 'list_user' %}">Listar usuario</a></li>
+                <li class="nav-item"><a href="{% url 'buscar_productos' %}">Buscar productos</a></li>
 
                 {% if not user.is_authenticated %}
-                {% comment %} <li class="nav-item"><a href="{% url 'registrar' %}">registrarse</a></li> {% endcomment %}
-                {% comment %} <li class="nav-item"><a href="{% url 'login' %}">iniciar sesión</a></li> {% endcomment %}
+                <li class="nav-item"><a href="{% url 'registrar' %}">registrarse</a></li>
+                <li class="nav-item"><a href="{% url 'login' %}">iniciar sesión</a></li>
                 {% endif %} {% if user.is_authenticated %} {% if user.is_superuser %}
-                {% comment %} <li class="nav-item"><a style="color: red;" href="{% url 'Regitro:borrar_carrera' %}">Borrar carrera</a></li> {% endcomment %}
+                <li class="nav-item"><a style="color: red;" href="{% url 'Registro:del_producto' %}">Borrar producto</a></li>
                 {% endif %}
 
-                {% comment %} <li class="nav-item"><a href="{% url 'logout' %}">Cerrar sesión</a></li> {% endcomment %}
-                {% comment %} <span class="ml-md-5" style="color: blue;"><strong>Usuario: {{ user.get_username }}</strong></span> {% endif %} {% endcomment %}
-            {% endif %}
+                <li class="nav-item"><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                <span class="ml-md-5" style="color: blue;"><strong>Usuario: {{ user.get_username }}</strong></span> {% endif %}
             </ul>
         </div>
     </nav>

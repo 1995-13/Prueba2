@@ -3,7 +3,7 @@ from .models import Producto, Categoria
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .forms import ProductoForm
-# from django.db.models import Q 
+from django.db.models import Q 
 
 # Create your views here.
 
@@ -38,17 +38,17 @@ class ProductoDelete(DeleteView):
     success_url = reverse_lazy('list_productos')
     
 #--------------- filtros --------------------------------
-# class BuscarAlumnosView(ListView):
-#     model = Alumno
-#     template_name = 'Registro/buscar_alumnos.html'
+class BuscarProductosView(ListView):
+    model = Producto
+    template_name = 'Registro/buscar_productos.html'
 
-# class SearchResultsView(ListView):
-#     model = Alumno
-#     template_name = 'Registro/search_results.html'
+class SearchResultsView(ListView):
+    model = Producto
+    template_name = 'Registro/search_results.html'
     
-#     def get_queryset(self): 
-#         query = self.request.GET.get('q')
-#         object_list = Alumno.objects.filter(
-#             Q(domicilio__icontains=query))
+    def get_queryset(self): 
+        query = self.request.GET.get('q')
+        object_list = Producto.objects.filter(
+            Q(nombre__icontains=query))
         
-#         return object_list
+        return object_list
