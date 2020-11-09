@@ -1,17 +1,23 @@
 {% extends 'base.html' %} {% block titulo_principal %}
+{% load static %}
 
-<div id="titulo_pagina">
-    Lista de productos Registrados
-</div>
 {% endblock %} {% block content %} {% if object_list %}
+<br>
+<hr>
+<h2>Lista de productos Registrados</h2>
+<hr>
+<br>
 <table class="table table-hover">
-    <thead>
+    <thead class="thead-dark">
         <tr>
             <th>Categoria</th>
             <th>Código</th>
             <th>Nombre</th>
             <th>Descripcion</th>
+            <th>Imagen</th>
             <th>Precio</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +27,7 @@
             <td>{{ producto.codigo }}</td>
             <td>{{ producto.nombre }}</td>
             <td>{{ producto.descripcion }}</td>
+            <td><img src="{% static producto.imagen.url %}" width="200" height="auto"/></td>
             <td>${{ producto.precio }}</td>
 
             <td><a class="btn btn-primary" href="{% url 'edit_producto' producto.id %}">Editar</a></td>

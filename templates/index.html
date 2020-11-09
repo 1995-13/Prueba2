@@ -1,0 +1,59 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %}Index{% endblock title %} 
+{% block content %}
+
+        <hr>
+        <h2 class="text-center">Miel y apicultura</h2>
+        <hr>
+        <br>
+        <div class="container">
+            <img id="mielHome" src="{% static 'images/img/homeAbejas.png' %}"  alt="foto De abejas">
+        </div>
+        <br>
+        <hr>
+        <h3 class="text-center">sabías que...</h3>
+        <hr>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        Según el papiro de Tebas, escrito en 1870 a.C., los egipcios alimentaban y cuidaban a sus hijos con miel. Para los egipcios, proviene de las lágrimas del Dios Ra y forma parte de todas las ofrendas religiosas del Egipto faraónico. Cuando los antiguos
+                        egipcios hacían sus expediciones, conservaban la carne en barriles llenos de miel. Su uso está muy bien relatado en los papiros encontrados; entre otras cosas, empleaban la miel para tratar las cataratas, llagas, cortes, quemaduras;
+                        en cosmética y como alimento fortificante. También fabricaban cerveza a partir de la miel fermentada. En la tumba del faraón Tutankamón fueron encontradas, en 1922 en perfectas condiciones, varias vasijas con miel, a pesar de los
+                        33 siglos transcurridos. </p>
+                </div>
+                <div class="col-md-4">
+                    <img class="img-fluid" src="{% static 'images/img/homAbeja.jpg' %}" alt="abeja en flor">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        Existen más de 20.000 especies de abejas silvestres. Muchas especies son solitarias (por ejemplo, las abejas albañil), y muchas otras crían a sus jóvenes en madrigueras y colonias pequeñas (por ejemplo, los abejorros). La apicultura, se ocupa de la gestión
+                        práctica de las especies sociales de las abejas de miel o melíferas, que viven en grandes colonias de hasta 100.000 individuos. En Europa y América, la especie universalmente cultivada por los apicultores es la abeja de la miel
+                        occidental (Apis mellifera). Esta especie tiene varias sub-especies o variedades regionales, como la abeja italiana (Apis mellifera ligústica), abeja oscura europea (Apis mellifera mellifera), y la abeja de la miel cárnica (Apis
+                        mellifera cárnica). En los trópicos, otras especies de abejas sociales son cultivadas para la producción de miel. </p>
+                </div>
+                <div class="col-md-4">
+                    <img class="img-fluid" src="{% static 'images/img/homeApicultor.jpg' %}" alt="apicultor">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-8">
+                    <p>
+                        Hipócrates, (siglo V antes de C.), el padre de la medicina alabó los poderes terapéuticos de la miel y la utilizó para curar diversas afecciones de la piel, úlceras y para aliviar el dolor en general. La recomendaba a sus pacientes para alcanzar la longevidad
+                        (Hipócrates vivió 107 años), los griegos consideraban que una dieta constituida por miel era muy importante para alcanzar una espiritualidad profunda. En la mitología griega, es el alimento de los Dioses del Olimpo, símbolo de
+                        conocimiento y de sabiduría, reservada para los elegidos, los iniciados, los seres de excepción, en este mundo como en el otro.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img class="img-fluid" src="{% static 'images/img/homeMiel.jpg' %}" alt="frasco de miel">
+                </div>
+            </div>
+        </div>
+        <br>
+{% endblock content %}

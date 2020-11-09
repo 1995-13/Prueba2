@@ -1,0 +1,100 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %}Galeria{% endblock title %} 
+{% block content %}
+
+<hr>
+<h2 class="text-center">Galería</h2>
+<hr>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="thumbnail text-center">
+                <img src="{% static 'images/img/01enjambre.jpg' %}" alt="enjambre de abejas" style="width:95%">
+                <div class="caption">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="thumbnail text-center">
+                <img src="{% static 'images/img/02florAbej.jpg' %}" alt="abeja en flor" style="width:95%">
+                <div class="caption">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="thumbnail text-center">
+                <img src="{% static 'images/img/03apicultura-traje-.jpg' %}" alt="colmena" style="width:95%">
+                <div class="caption">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="thumbnail text-center">
+                <img src="{% static 'images/img/12vuelaabeja.jpg.png' %}" alt="abeja en flor" style="width:95%">
+                <div class="caption">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="thumbnail text-center">
+                <img src="{% static 'images/img/10marco.jpg' %}" alt="marco de miel" style="width:95%">
+                <div class="caption">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="thumbnail text-center">
+                <img src="{% static 'images/img/06abejareina.jpg' %}" alt="abejas" style="width:95%">
+                <div class="caption">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="thumbnail text-center">
+                <img src="{% static 'images/img/07bee.jpg' %}" alt="marco de miel" style="width:95%">
+                <div class="caption">
+                    <p></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="thumbnail text-center">
+                <img src="{% static 'images/img/05abejaenFlor.jpg' %}" alt="abeja en flor" style="width:95%">
+                <div class="caption">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="thumbnail text-center">
+                <img src="{% static 'images/img/09abejas.jpg' %}" alt="enjambre" style="width:95%">
+                <div class="caption">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

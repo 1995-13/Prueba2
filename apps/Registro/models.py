@@ -5,7 +5,7 @@ from django.db import models
 class Categoria(models.Model):
     nombre = models.CharField(max_length = 40)
     descripcion = models.CharField(max_length = 100)
-    imagen = models.ImageField(upload_to='img')
+    imagen = models.ImageField(upload_to='imgcategoria')
     
     def __str__(self):
         return self.nombre
@@ -15,7 +15,7 @@ class Producto(models.Model):
     codigo = models.CharField(max_length = 10)
     nombre = models.CharField(max_length = 40)
     descripcion = models.CharField(max_length = 150)
-    imagen = models.ImageField(upload_to='img')
+    imagen = models.ImageField(upload_to='imgproducto')
     precio = models.PositiveIntegerField()
     
     def __str__(self):
