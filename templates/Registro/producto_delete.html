@@ -5,7 +5,7 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
-            <p class="delete-msg">Esta seguro que desea borrar {{ object.nombre }}?</p>
+            <p class="delete-msg">Esta seguro que desea eliminar {{ object.nombre }}?</p>
 
             <a href="{% url 'list_productos' %}" class="btn btn-secondary">No</a>
             <button class="btn btn-primary" type="submit">Si</button>

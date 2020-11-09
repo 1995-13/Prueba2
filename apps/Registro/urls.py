@@ -2,6 +2,7 @@ from django.urls import path, include
 from . import views
 from django.contrib.auth.views import login_required
 from .views import SearchResultsView, BuscarProductosView
+# from django.contrib.admin.views.decorators import staff_member_required 
 
 urlpatterns = [
 
