@@ -19,5 +19,6 @@ urlpatterns = [
     path('contacto_borrar/<int:pk>', login_required(views.ContactoDelete.as_view()), name='contacto_borrar'),
     path('contacto_edit/<int:pk>', login_required(views.ContactoUpdate.as_view()), name='contacto_edit'),
     path('contacto_success', TemplateView.as_view(template_name='registro/contacto_success.html'), name='contacto_success'),
+    path('list_productos_usuario/', views.ProductoListUsuario.as_view(), name='list_productos_usuario'),
     
 ]

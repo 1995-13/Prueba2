@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Productos{% endblock %} 
+{% block titulo_principal %}Productos{% endblock %} 
+{% load static %} 
+{% block content %} 
+{% if object_list %}
+
+{% for producto in object_list %}
+
+        <div class="thumbnail text-center col-md-4 card">
+            <img src="{% static producto.imagen.url %}" width="200" height="auto" />
+            <div class="caption">
+                <h4 class="text-left">{{ producto.nombre }}</h4>
+                <p class="text-left"> {{ producto.descripcion }}</p>
+                <h6>${{ producto.precio }}<h6>
+            </div>
+        </div>
+
+{% endfor %} {% else %}
+<h1>No hay registros de productos</h1>
+{% endif %} {% endblock %}

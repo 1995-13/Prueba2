@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
 {% load static %}
-
-{% block title %}<h1>Buscar productos</h1>{% endblock title %}
-
+{% block title %}Buscar producto{% endblock title %}
+{% block titulo_principal %}Buscar producto{% endblock %} 
 {% block content %} 
-<h1>Ingrese nombre del producto:</h1>
-
-<form action="{% url 'search_results' %}" method="get">
-  <input name="q" type="text" placeholder="Search...">
-</form>
+<div class="col-md-4"></div>
+<div class="thumbnail text-center col-md-4 card">
+    <h5>Ingrese nombre del producto:  </h5>
+    <form class="form" action="{% url 'search_results' %}" method="get">
+      <input class="form-control" name="q" type="text" placeholder="Search...">
+    </form>
+</div>
+<div class="col-md-4"></div>
 
 {% endblock content %}

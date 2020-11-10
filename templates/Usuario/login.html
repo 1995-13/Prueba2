@@ -1,24 +1,12 @@
 {% extends 'base.html' %} 
-
 {% load static %}
-
-{% block title %}
-Registro
-{% endblock %}
-
+{% block title %}Registro{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/registro.css' %}" type="text/css">
 {% endblock %}
-
-{% block header %}
-{% endblock %}
-
+{% block titulo_principal %}Login{% endblock %}
 {% block content %}
-<br>
-<hr>
-    <h1 class="text-center">Login</h1>
-<hr>
-<br>
+
 <div id="registro" class="container col-md-4">
     <form method="POST" id="formulario">
         {% csrf_token %}

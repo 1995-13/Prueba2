@@ -1,17 +1,30 @@
 {% extends 'base.html' %} 
 {% block titulo_principal %} Usuarios registrados {% endblock %}
 
-{% block content %}
-   {% if object_list %}
+{% block content %} 
+{% if object_list %}
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Usuario</th>
+            <th>Email usuario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for user in object_list %}
-            <p>Nombre: {{ user.username }}</p>
-            <p>email: {{ user.email }}</p>      
-
-            <br>
+        <tr>
+            <th scope="row">{{ user.username }} </th>
+            <td>{{ user.email }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+        </tr>
         {% endfor %}
-        
-    {% else %}
-        <h1>No hay registros de user</h1>
-    {% endif %}
+    </tbody>
+</table>
 
-{% endblock %}
+{% else %}
+<h1>No hay registros de usuarios</h1>
+{% endif %} {% endblock %}

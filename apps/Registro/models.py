@@ -5,6 +5,7 @@ ASUNTO=(
     ('Consulta','Consulta'),
     ('Reclamo','Reclamo'),
     ('Sugerencia','Sugerencia'),
+    ('Cotizacion','Cotizacion'),
     ('Otros', 'Otros'),
 )
 

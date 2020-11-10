@@ -44,10 +44,13 @@
     {% endblock %}
     
     <div class="content container">
+        <br>
+        <hr>
+        <h2 class="text-center"> {% block titulo_principal%} {% endblock %}</h2>
+        <hr>
+        <br> 
         <div class="row">
-            <div class="col-md-12">
                 {% block content %} {% endblock %}
-            </div>
         </div>
     </div>
     <div>

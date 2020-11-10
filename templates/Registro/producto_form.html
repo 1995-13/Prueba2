@@ -3,9 +3,8 @@
 {% load static %}
 
 {% block title %}Agregar producto{% endblock title %}
+{% block titulo_principal %}Agregar producto{% endblock %}
 {% block content %} 
-
-    <h2>Agregar producto</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}

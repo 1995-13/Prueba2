@@ -3,9 +3,8 @@
 {% load static %}
 
 {% block title %}Home Page{% endblock title %}
-
+{% block titulo_principal %}Home{% endblock %}
 {% block content %} 
-    <h2>Home</h2>
     {% if user.is_authenticated %}
         {% comment %} <img src="{% static 'images/homeSite.png' %}" alt="home"> {% endcomment %}
         <p>You are welcome on Home Page</p>

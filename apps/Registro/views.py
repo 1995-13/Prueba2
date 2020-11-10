@@ -24,6 +24,10 @@ class ProductoCreate(CreateView):
 class ProductoList(ListView):
     model = Producto
     template_name = 'Registro/list_productos.html'
+    
+class ProductoListUsuario(ListView):
+    model = Producto
+    template_name = 'Registro/list_productos_usuario.html'
 
 
 class ProductoUpdate(UpdateView):
