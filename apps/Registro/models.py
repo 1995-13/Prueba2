@@ -1,6 +1,12 @@
 from django.db import models
 
 # Create your models here.
+ASUNTO=(
+    ('Consulta','Consulta'),
+    ('Reclamo','Reclamo'),
+    ('Sugerencia','Sugerencia'),
+    ('Otros', 'Otros'),
+)
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length = 40)
@@ -25,8 +31,9 @@ class Contacto(models.Model):
     nombre = models.CharField(max_length=50)
     apellido_paterno = models.CharField(max_length=50)
     email = models.EmailField(max_length = 50)
-    asunto = models.CharField(max_length = 20)
+    asunto = models.CharField(max_length = 20, choices=ASUNTO)
     mensaje = models.CharField(max_length = 250)
     
     def __str__(self):
         return self.email
+    

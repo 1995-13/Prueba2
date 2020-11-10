@@ -1,6 +1,6 @@
 from django import forms
 from django import forms
-from .models import Producto, Categoria
+from .models import Producto, Categoria, Contacto
 
 
 class ProductoForm(forms.ModelForm):
@@ -25,6 +25,34 @@ class ProductoForm(forms.ModelForm):
             'precio': forms.TextInput(attrs={'class': 'form-control'}),
         }
         
+class ContactoForm(forms.ModelForm):
+    
+
+    class Meta:
+        model = Contacto
+        fields = (
+            'nombre',
+            'apellido_paterno',
+            'email',
+            'asunto',
+            'mensaje'
+        )
+        labels = {
+            'nombre':'Nombre',
+            'apellido_paterno':'Apellido paterno',
+            'email':'Correo electronico',
+            'asunto':'Asunto',
+            'mensaje':'Mensaje'
+        }
+        widgets = {
+            'nombre':forms.TextInput(attrs={'class':'form-control'}),
+            'apellido_paterno':forms.TextInput(attrs={'class':'form-control'}),
+            'email':forms.TextInput(attrs={'class':'form-control'}),
+            'asunto':forms.Select(choices="ASUNTO", attrs={'class':'form-control'}),
+            'mensaje':forms.Textarea(attrs={'class':'form-control'})
+        }
+
+
         
         
         

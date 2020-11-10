@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from .models import Producto, Categoria
+from .models import Producto, Categoria, Contacto
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .forms import ProductoForm
+from .forms import ProductoForm, ContactoForm
 from django.db.models import Q 
+
 
 # Create your views here.
 
@@ -52,3 +53,26 @@ class SearchResultsView(ListView):
             Q(nombre__icontains=query))
         
         return object_list
+
+# CRUD de contacto
+
+class ContactoList (ListView):                    
+    model = Contacto
+    template_name = 'Registro/contacto_list.html'
+
+class ContactoCreate (CreateView):
+    model = Contacto
+    form_class = ContactoForm
+    template_name = 'Registro/contacto_form.html'
+    success_url = reverse_lazy('contacto_success')
+
+class ContactoUpdate(UpdateView):
+    model = Contacto
+    form_class = ContactoForm
+    template_name = 'Registro/contacto_form.html'
+    success_url = reverse_lazy('contacto_list')
+
+class ContactoDelete(DeleteView):
+    model = Contacto
+    template_name = 'Registro/contacto_borrar.html'
+    success_url = reverse_lazy('contacto_list')
