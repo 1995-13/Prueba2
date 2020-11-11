@@ -5,10 +5,14 @@
 {% block title %}Agregar producto{% endblock title %}
 {% block titulo_principal %}Agregar producto{% endblock %}
 {% block content %} 
+<div class="col-md-4"> </div>
+<div class="col-md-4">
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">GRABAR</button>
-    </form>   
-
+        <br>
+        <button class="btn btn-primary form-control" type="submit">GRABAR</button>
+    </form> 
+ </div>  
+<div class="col-md-4"> </div>
 {% endblock content %} 

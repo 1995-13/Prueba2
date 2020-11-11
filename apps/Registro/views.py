@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Producto, Categoria, Contacto
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .forms import ProductoForm, ContactoForm
+from .forms import ProductoForm, ContactoForm, CategoriaForm
 from django.db.models import Q 
 
 
@@ -19,7 +19,7 @@ class ProductoCreate(CreateView):
     model = Producto
     form_class = ProductoForm
     template_name = 'Registro/producto_form.html'
-    success_url = reverse_lazy("listar_productos")
+    success_url = reverse_lazy("list_productos")
     
 class ProductoList(ListView):
     model = Producto
@@ -80,3 +80,26 @@ class ContactoDelete(DeleteView):
     model = Contacto
     template_name = 'Registro/contacto_borrar.html'
     success_url = reverse_lazy('contacto_list')
+    
+# CRUD de categoria
+
+class CategoriaList (ListView):                    
+    model = Categoria
+    template_name = 'Registro/categoria_list.html'
+
+class CategoriaCreate (CreateView):
+    model = Categoria
+    form_class = CategoriaForm
+    template_name = 'Registro/categoria_form.html'
+    success_url = reverse_lazy('categoria_list')
+
+class CategoriaUpdate(UpdateView):
+    model = Categoria
+    form_class = CategoriaForm
+    template_name = 'Registro/categoria_form.html'
+    success_url = reverse_lazy('categoria_list')
+
+class CategoriaDelete(DeleteView):
+    model = Categoria
+    template_name = 'Registro/categoria_borrar.html'
+    success_url = reverse_lazy('categoria_list')

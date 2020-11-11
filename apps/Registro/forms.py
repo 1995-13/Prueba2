@@ -52,6 +52,27 @@ class ContactoForm(forms.ModelForm):
             'mensaje':forms.Textarea(attrs={'class':'form-control'})
         }
 
+class CategoriaForm(forms.ModelForm):
+    
+    class Meta:
+        model = Categoria
+        
+        fields = (
+            'nombre',
+            'descripcion',
+            'imagen'
+        )
+        labels = {
+            'nombre':'Nombre',
+            'descripcion':'Descripción',
+            'imagen':'Imagen'
+        }
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
+            'imagen': forms.FileInput(attrs={'class': 'form-control'})
+        }
+
 
         
         

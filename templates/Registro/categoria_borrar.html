@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block titulo_principal %}Eliminar categoría{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <p class="delete-msg">Esta seguro que desea eliminar {{ object.nombre }}?</p>
+
+            <a href="{% url 'categoria_list' %}" class="btn btn-secondary">No</a>
+            <button class="btn btn-primary" type="submit">Si</button>
+        </form>
+    </div>
+{% endblock %}

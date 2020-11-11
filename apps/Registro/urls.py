@@ -7,7 +7,6 @@ from .views import SearchResultsView, BuscarProductosView
 urlpatterns = [
 
     # listar los productos de la bd
-    path('listarProductos', views.listar_productos, name="listar_productos"),
     path('add_producto', views.ProductoCreate.as_view(), name="add_producto"),
     path('list_productos/', views.ProductoList.as_view(), name='list_productos'),
     path('edit_producto/<int:pk>', login_required(views.ProductoUpdate.as_view()), name='edit_producto'),
@@ -20,5 +19,8 @@ urlpatterns = [
     path('contacto_edit/<int:pk>', login_required(views.ContactoUpdate.as_view()), name='contacto_edit'),
     path('contacto_success', TemplateView.as_view(template_name='registro/contacto_success.html'), name='contacto_success'),
     path('list_productos_usuario/', views.ProductoListUsuario.as_view(), name='list_productos_usuario'),
-    
+    path('add_categoria', views.CategoriaCreate.as_view(), name="add_categoria"),
+    path('categoria_list/', views.CategoriaList.as_view(), name='categoria_list'),
+    path('categoria_borrar/<int:pk>', login_required(views.CategoriaDelete.as_view()), name='categoria_borrar'),
+    path('categoria_edit/<int:pk>', login_required(views.CategoriaUpdate.as_view()), name='categoria_edit'),
 ]
