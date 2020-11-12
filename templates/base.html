@@ -24,18 +24,23 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'add_contacto' %}">Contáctanos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">Galería</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="{% url 'list_productos' %}">Listar productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'registrar' %}">Registrar usuario</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'list_user' %}">Listar usuario</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'buscar_productos' %}">Buscar productos</a></li>
-
-                {% if not user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'registrar' %}">Registrarse</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a></li>
-                {% endif %} {% if user.is_authenticated %} {% if user.is_superuser %}
-                <li class="nav-item"><a style="color: red;" href="{% url 'del_producto' producto.id %}">Borrar producto</a></li>
+                {% if not  user.is_superuser %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'list_productos_usuario' %}">Productos</a></li>
                 {% endif %}
 
+                {% if user.is_superuser %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'list_productos' %}">Administrar productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'categoria_list' %}">Administrar categoria</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contacto_list' %}">Administrar solicitudes</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'list_user' %}">Listar usuarios</a></li>
+                {% endif %}
+                
+
+                {% if not user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" style="color: rgb(24, 130, 201);" href="{% url 'registrar' %}">Registrarse</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: rgb(24, 130, 201);" href="{% url 'login' %}">Iniciar sesión</a></li>
+                {% endif %} 
+                {% if user.is_authenticated %} 
                 <li class="nav-item"><a class="nav-link" style="color: red;" href="{% url 'logout' %}">Cerrar sesión</a></li>
                 <span class="ml-md-5 nav-item nav-link" style="color: rgb(24, 130, 201);" ><strong>Usuario: {{ user.get_username }}</strong></span> {% endif %}
             </ul>
@@ -99,6 +104,7 @@
     {% block javascript %} 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/formulario.js' %}"></script>
     {% endblock javascript %}
 </body>
 

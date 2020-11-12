@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{% block title %}Buscar producto{% endblock title %}
-{% block titulo_principal %}Buscar producto{% endblock %} 
+{% block title %}Buscar categoria{% endblock title %}
+{% block titulo_principal %}Buscar categoria{% endblock %} 
 {% block content %} 
 <div class="col-md-4"></div>
 <div class="thumbnail text-center col-md-4 card">
-    <h5>Ingrese nombre del producto:  </h5>
-    <form class="form" action="{% url 'producto_search_results' %}" method="get">
+    <h5>Ingrese nombre de la categoria:  </h5>
+    <form class="form" action="{% url 'categoria_search_results' %}" method="get">
       <input class="form-control" name="q" type="text" placeholder="Search...">
     </form>
 </div>

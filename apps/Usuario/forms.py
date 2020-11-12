@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django import forms
 
 class RegistroForm(UserCreationForm):
 
@@ -17,3 +18,11 @@ class RegistroForm(UserCreationForm):
                 'last_name': 'Apellidos',
                 'email': 'Correo',
         }
+
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name':forms.TextInput(attrs={'class':'form-control'}),
+            'last_name':forms.TextInput(attrs={'class':'form-control'}),
+            'email':forms.TextInput(attrs={'class':'form-control'}),
+        }
+        

@@ -3,6 +3,14 @@
 {% block titulo_principal %}Productos{% endblock %} 
 {% load static %} 
 {% block content %} 
+
+<div class="col-md-2" style="margin-bottom:10px;"> 
+<a href="{% url 'buscar_productos' %} "><button class="btn btn-primary form-control">Buscar producto</button></a>
+</div>
+<div class="col-md-5">
+</div>
+<div class="col-md-5">
+</div>
 {% if object_list %}
 
 {% for producto in object_list %}

@@ -1,21 +1,17 @@
-{% extends 'base.html' %} 
-{% block titulo_principal %} Categorías {% endblock %}
+{% extends 'base.html' %}
+
 {% load static %}
+
+{% block title %}Resultados de busqueda{% endblock title %}
+
+{% block titulo_principal %}Resultados de busqueda{% endblock %}
+
 {% block content %} 
-
-<div style="margin-bottom:10px;"> 
-    <a href="{% url 'add_categoria' %} "><button class="btn btn-primary form-control">Agregar categoria</button></a>
-</div>
-<div style="margin-left:20px; margin-bottom:10px;">
-    <a href="{% url 'buscar_categoria' %} "><button class="btn btn-primary form-control">Buscar categoria</button></a>
-</div>
-{% if object_list %}
-
-<table class="table table-hover col-md-12">
+<table class="table table-hover">
     <thead class="thead-dark">
         <tr>
             <th>Nombre</th>
-            <th>Descripción</th>
+            <th>Descripcion</th>
             <th>Imagen</th>
             <th></th>
             <th></th>
@@ -27,15 +23,13 @@
             <th scope="row">{{ categoria.nombre }} </th>
             <td>{{ categoria.descripcion }}</td>
             <td><img src="{% static categoria.imagen.url %}" width="200" height="auto"/></td>
+            {% if user.is_superuser %}
             <td><a class="btn btn-primary" href="{% url 'categoria_edit' categoria.id %}">Editar</a></td>
             <td><a class="btn btn-danger" href="{% url 'categoria_borrar' categoria.id %}">Eliminar</a></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
-{% else %}
-<div class="text-center col-md-12">
-    <h3>No hay registros de categorias</h3>
-</div>
-{% endif %} {% endblock %}
+{% endblock content %}

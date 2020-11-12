@@ -3,6 +3,12 @@
 {% load static %}
 {% block titulo_principal %}Lista de productos Registrados{% endblock %} 
 {% block content %} 
+<div style="margin-bottom:10px;"> 
+<a href="{% url 'add_producto' %} "><button class="btn btn-primary form-control">Agregar producto</button></a>
+</div>
+<div style="margin-left:20px; margin-bottom:10px;"> 
+<a href="{% url 'buscar_productos' %} "><button class="btn btn-primary form-control">Buscar producto</button></a>
+</div>
 {% if object_list %}
 
 <table class="table table-hover col-md-12">

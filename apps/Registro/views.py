@@ -42,18 +42,35 @@ class ProductoDelete(DeleteView):
     template_name = 'Registro/producto_delete.html'
     success_url = reverse_lazy('list_productos')
     
-#--------------- filtros --------------------------------
+#--------------- filtros de producto--------------------------------
 class BuscarProductosView(ListView):
     model = Producto
     template_name = 'Registro/buscar_productos.html'
 
-class SearchResultsView(ListView):
+class ProductoNombreResultsView(ListView):
     model = Producto
-    template_name = 'Registro/search_results.html'
+    template_name = 'Registro/producto_search_results.html'
     
     def get_queryset(self): 
         query = self.request.GET.get('q')
         object_list = Producto.objects.filter(
+            Q(nombre__icontains=query))
+        
+        return object_list
+    
+#--------------- filtros de categoria--------------------------------
+
+class BuscarCategoriaView(ListView):
+    model = Categoria
+    template_name = 'Registro/buscar_categoria.html'
+
+class CategoriaNombreResultsView(ListView):
+    model = Categoria
+    template_name = 'Registro/categoria_search_results.html'
+    
+    def get_queryset(self): 
+        query = self.request.GET.get('q')
+        object_list = Categoria.objects.filter(
             Q(nombre__icontains=query))
         
         return object_list

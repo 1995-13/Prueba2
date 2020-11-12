@@ -8,13 +8,16 @@
 
 {% block content %} 
 <table class="table table-hover">
-    <thead>
+    <thead class="thead-dark"> 
         <tr>
             <th>Categoria</th>
             <th>Código</th>
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Precio</th>
+            <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -25,9 +28,11 @@
             <td>{{ producto.nombre }}</td>
             <td>{{ producto.descripcion }}</td>
             <td>${{ producto.precio }}</td>
-
+            <td><img src="{% static producto.imagen.url %}" width="200" height="auto"/></td>
+             {% if user.is_superuser %}
             <td><a class="btn btn-primary" href="{% url 'edit_producto' producto.id %}">Editar</a></td>
             <td><a class="btn btn-danger" href="{% url 'del_producto' producto.id %}">Eliminar</a></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>

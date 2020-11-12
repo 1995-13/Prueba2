@@ -1,15 +1,18 @@
 {% extends 'base.html' %} 
+{% load static %}
 {% block title %}Agregar usuario{% endblock %}
 {% block titulo_principal %}Agregar usuario{% endblock %}
+
 {% block content %}
     
-    
-    <div class="content container">
+<div class="col-md-4"> </div>
+<div class="col-md-4">    
     <form method="POST">
         {% csrf_token %} {{ form.as_p }}
-        <button type="submit">GRABAR</button>
+        <button class="btn btn-primary form-control" type="submit">GRABAR</button>
     </form>
-    </div>
+</div>
+<div class="col-md-4"> </div>
 
 {% endblock %}
 
