@@ -33,4 +33,8 @@ urlpatterns = [
     path('buscar_categoria/', staff_member_required(BuscarCategoriaView.as_view()), name='buscar_categoria'),
     path('categoria_search_results/', staff_member_required(CategoriaNombreResultsView.as_view()), name='categoria_search_results'),
     
+    # api 
+    path('categorias/',  views.categoria_collection , name='categoria_collection'),
+    path('categorias/<int:pk>/', views.categoria_element ,name='categoria_element')
+    
 ]

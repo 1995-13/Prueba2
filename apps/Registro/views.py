@@ -1,10 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Producto, Categoria, Contacto
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .forms import ProductoForm, ContactoForm, CategoriaForm
 from django.db.models import Q 
 
+#------------- importacines API ---------------------
+from django.http import HttpResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import CategoriaSerializer
+from rest_framework import status
+
+from django.http.response import JsonResponse
+from rest_framework.parsers import JSONParser 
 
 # Create your views here.
 
@@ -120,3 +129,39 @@ class CategoriaDelete(DeleteView):
     model = Categoria
     template_name = 'Registro/categoria_borrar.html'
     success_url = reverse_lazy('categoria_list')
+
+# ------------ funciones para API -----------------------
+# El decorador @api_view verifica que la solicitud HTTP apropiada 
+@api_view(['GET', 'POST'])
+def categoria_collection(request):
+    if request.method == 'GET':
+        categorias = Categoria.objects.all()
+        serializer = CategoriaSerializer(categorias, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = CategoriaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            # Si el proceso de deserialización funciona, devolvemos una respuesta con un código 201 (creado
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        # si falla el proceso de deserialización, devolvemos una respuesta 400
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view((['GET', 'PUT', 'DELETE']))
+def categoria_element(request, pk):
+    categoria = get_object_or_404(Categoria, id=pk)
+
+    if request.method == 'GET':
+        serializer = CategoriaSerializer(categoria)
+        return Response(serializer.data)
+    elif request.method == 'DELETE':
+        categoria.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    elif request.method == 'PUT': 
+        categoria_new = JSONParser().parse(request) 
+        serializer = CategoriaSerializer(categoria, data=categoria_new) 
+        if serializer.is_valid(): 
+            serializer.save() 
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
