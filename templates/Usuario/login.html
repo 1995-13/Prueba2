@@ -8,9 +8,11 @@
 {% block content %}
 
 <div id="registro" class="container col-md-4">
+
+<a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
+
     <form method="POST" id="formulario">
         {% csrf_token %}
-
         <div class="form-group">
             <label for="username">Nombre de Usuario</label><br>
             <input name="username" class="form-control" type="text"/>

@@ -26,12 +26,12 @@ urlpatterns = [
     
     # Url para Vistas de categoria
     
-    path('add_categoria', staff_member_required(views.CategoriaCreate.as_view()), name="add_categoria"),
-    path('categoria_list/', staff_member_required(views.CategoriaList.as_view()), name='categoria_list'),
-    path('categoria_borrar/<int:pk>', staff_member_required(views.CategoriaDelete.as_view()), name='categoria_borrar'),
-    path('categoria_edit/<int:pk>', staff_member_required(views.CategoriaUpdate.as_view()), name='categoria_edit'),
-    path('buscar_categoria/', staff_member_required(BuscarCategoriaView.as_view()), name='buscar_categoria'),
-    path('categoria_search_results/', staff_member_required(CategoriaNombreResultsView.as_view()), name='categoria_search_results'),
+    path('add_categoria', views.CategoriaCreate.as_view(), name="add_categoria"),
+    path('categoria_list/', views.CategoriaList.as_view(), name='categoria_list'),
+    path('categoria_borrar/<int:pk>', views.CategoriaDelete.as_view(), name='categoria_borrar'),
+    path('categoria_edit/<int:pk>', views.CategoriaUpdate.as_view(), name='categoria_edit'),
+    path('buscar_categoria/', BuscarCategoriaView.as_view(), name='buscar_categoria'),
+    path('categoria_search_results/', CategoriaNombreResultsView.as_view(), name='categoria_search_results'),
     
     # api 
     path('categorias/',  views.categoria_collection , name='categoria_collection'),

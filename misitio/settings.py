@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'apps.Registro',
     'apps.Usuario',
     'rest_framework',
+    'social_django',
+    'social.apps.django_app.default',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'misitio.urls'
@@ -66,12 +70,27 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'misitio.wsgi.application'
+
+AUTHENTICATION_BACKENDS = [
+                'social.backends.facebook.FacebookAppOAuth2',
+                'social.backends.facebook.FacebookOAuth2',
+                'django.contrib.auth.backends.ModelBackend',
+                'social_core.backends.facebook.FacebookOAuth2',
+]
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '453805552275380'
+SOCIAL_AUTH_FACEBOOK_SECRET = '5846b40f7b9ed8b7d8ab736ca8cfe11e'
+
 
 
 # Database
@@ -129,6 +148,30 @@ STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static',
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+
+
+# PWA
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
+
+PWA_APP_NAME = 'Proyecto miel y apicultura'
+PWA_APP_DESCRIPTION = 'Miel y apicultura Web App DUOC'
+PWA_APP_THEME_COLOR = '#ffff40'
+PWA_APP_BACKGROUND_COLOR = '#fff'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images/icons/abeja.png',
+        'sizes': '256x256'
+    },
+    {
+        'src': '/static/images/icons/miel.png',
+        'sizes': '256x256'
+    },
+    {
+        'src': '/static/images/icons/panal.png',
+        'sizes': '256x256'
+    }
+]
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'

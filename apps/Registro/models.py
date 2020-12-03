@@ -12,7 +12,7 @@ ASUNTO=(
 class Categoria(models.Model):
     nombre = models.CharField(max_length = 40)
     descripcion = models.CharField(max_length = 100)
-    imagen = models.ImageField(upload_to='imgcategoria')
+    imagen = models.ImageField(upload_to='imgcategoria', blank=True, null=True)
     
     def __str__(self):
         return self.nombre

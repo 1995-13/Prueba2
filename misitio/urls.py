@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('registro/', include('apps.Registro.urls')),
     path('usuario/', include('apps.Usuario.urls')),
+    path('', include('pwa.urls')),
     
      # Login and Logout
     path('accounts/login/', LoginView.as_view(redirect_authenticated_user=True,template_name='Usuario/login.html'), name='login'),
@@ -38,4 +39,7 @@ urlpatterns = [
     path('reset/password_reset_done', PasswordResetDoneView.as_view(template_name='recuperacion/password_reset_done.html'), name = 'password_reset_done'),
     re_path(r'^reset/(?P<uidb64>[0-9A-za-z_\-]+)/(?P<token>.+)/$', PasswordResetConfirmView.as_view(template_name='recuperacion/password_reset_confirms.html'), name = 'password_reset_confirm'),
     path('reset/done',PasswordResetCompleteView.as_view(template_name='recuperacion/password_reset_complete.html') , name = 'password_reset_complete'),
+
+    path('', include('social_django.urls', namespace='social')),
+
 ]
